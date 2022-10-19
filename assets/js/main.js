@@ -19,12 +19,33 @@ function generateNumbers(min, max) {
         numberList.push(num)
       }
     }
+    
     return numberList
-  }
+}
+
+
+const randomEl = document.querySelector('.random');
+randomEl.insertAdjacentHTML('beforeend', numberList);
   
-  
-  
-  function generateRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
- 
+
+function generateRandomNumber(min, max) {
+return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+// Timer di 30 secondi, utilizzo set interval
+
+// salvo in una variabile il numero dei secondi
+
+let seconds = 5;
+
+const timer = setInterval(function(){
+    const timerEl = document.querySelector('.timer').innerText = seconds;
+   
+
+    if (seconds == 0) {
+        randomEl.classList.add('none');
+    } else {
+        seconds--
+    }
+}, 1000)
