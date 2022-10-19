@@ -49,3 +49,7 @@ const timer = setInterval(function(){
         seconds--
     }
 }, 1000)
+
+for (let i = 0; i < 5; i++) {
+    const userNumber = Number(prompt('Inserisci i numeri che hai appena visualizzato'))
+}
