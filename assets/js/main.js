@@ -2,7 +2,7 @@
 Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi. Dopo 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt(). Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 */
-const numbers = 5;
+const numbers = 10;
 // generare 5 numeri casuali 
 
 const numberList = generateNumbers(1, numbers)
@@ -23,7 +23,7 @@ function generateNumbers(min, max) {
     return numberList
 }
 
-
+// seleziono elemento della DOM dove inserisco la lista di numeri generati
 const randomEl = document.querySelector('.random');
 randomEl.insertAdjacentHTML('beforeend', numberList);
   
@@ -36,13 +36,13 @@ return Math.floor(Math.random() * (max - min + 1)) + min;
 // Timer di 30 secondi, utilizzo set interval
 
 // salvo in una variabile il numero dei secondi
+let seconds = 30;
 
-let seconds = 5;
-
+// setInterval
 const timer = setInterval(function(){
     const timerEl = document.querySelector('.timer').innerText = seconds;
    
-
+    // quando il timer arriva a 0 i numeri random scompaiono
     if (seconds == 0) {
         randomEl.classList.add('none');
     } else {
@@ -50,6 +50,21 @@ const timer = setInterval(function(){
     }
 }, 1000)
 
-for (let i = 0; i < 5; i++) {
-    const userNumber = Number(prompt('Inserisci i numeri che hai appena visualizzato'))
+
+// chiedere all'utente di inserire i numeri visti precedentemente, uno alla volta
+setTimeout(request, 33000) 
+let userNumber;
+
+function request(){
+    for (let i = 0; i < 5; i++) {
+     userNumber= Number(prompt('Inserisci i numeri che hai appena visualizzato'))
+     console.log(userNumber);
+    //  verificare quali numeri sono stati individuati
+     if (numberList.includes(userNumber)) {
+        const resulEl = document.querySelector('.result');
+        resulEl.insertAdjacentHTML('beforeend', `${userNumber}: è contenuto nella lista `)
+        }
+    }
 }
+
+
