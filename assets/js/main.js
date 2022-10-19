@@ -12,13 +12,10 @@ console.log(numberList);
 function generateNumbers(min, max) {
     const numberList = []
     while (numberList.length !== 5) {
-  
       // genero numero casuale
       const num = generateRandomNumber(min, max)
-      // verifico se il numero é stato giá inserito nella lista di bombe
-      // se non lo é lo aggiungo altrimenti vado avanti
+      // verifico se il numero é stato giá inserito nella lista
       if (!numberList.includes(num)) {
-        // se la condizione é falsa allora eseguo il codice qui dentro
         numberList.push(num)
       }
     }
