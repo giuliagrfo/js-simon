@@ -36,7 +36,7 @@ return Math.floor(Math.random() * (max - min + 1)) + min;
 // Timer di 30 secondi, utilizzo set interval
 
 // salvo in una variabile il numero dei secondi
-let seconds = 30;
+let seconds = 2;
 
 // setInterval
 const timer = setInterval(function(){
@@ -50,19 +50,22 @@ const timer = setInterval(function(){
     }
 }, 1000)
 
-
+// 33000
 // chiedere all'utente di inserire i numeri visti precedentemente, uno alla volta
-setTimeout(request, 33000) 
+setTimeout(request, 4000) 
 let userNumber;
 
 function request(){
     for (let i = 0; i < 5; i++) {
      userNumber= Number(prompt('Inserisci i numeri che hai appena visualizzato'))
-     console.log(userNumber);
-    //  verificare quali numeri sono stati individuati
+        //  console.log(userNumber);
+        //  verificare quali numeri sono stati individuati
      if (numberList.includes(userNumber)) {
-        const resulEl = document.querySelector('.result');
-        resulEl.insertAdjacentHTML('beforeend', `${userNumber}: è contenuto nella lista `)
+        const resultEl = document.querySelector('.result');
+        resultEl.insertAdjacentHTML('beforeend', `${userNumber}: è contenuto nella lista `)
+        const scoreEl = document.querySelector('.score')
+        scoreEl.insertAdjacentHTML('beforeend', numberList.includes(userNumber));
+        console.log(scoreEl);
         }
     }
 }
