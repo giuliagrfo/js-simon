@@ -3,8 +3,8 @@ Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi. Do
 
 */
 const numbers = 10;
-// generare 5 numeri casuali 
 
+// generare 5 numeri casuali 
 const numberList = generateNumbers(1, numbers)
 console.log(numberList);
 
@@ -52,11 +52,10 @@ const timer = setInterval(function(){
 
 // chiedere all'utente di inserire i numeri visti precedentemente, uno alla volta
 setTimeout(request, 33000) 
-let userNumber;
 let score = 0
 function request(){
     for (let i = 0; i < 5; i++) {
-        userNumber= Number(prompt('Inserisci i numeri che hai appena visualizzato'))
+        let userNumber = Number(prompt('Inserisci i numeri che hai appena visualizzato'))
         //  console.log(userNumber);
         //  verificare quali numeri sono stati individuati
         if (numberList.includes(userNumber)) {
@@ -70,3 +69,4 @@ function request(){
 }
 
 
+// 
